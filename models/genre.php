@@ -1,9 +1,21 @@
 <?php
 
 class Genre {
-    public $genreName;
 
-    function __construct($genres){
-        $this->genreName = implode(', ', $genres);
+    public $genres = [];
+
+    
+    public function getGenre() {
+
+        
+        $genresList = $this->genres;
+
+        return implode(', ', $genresList);
     }
-}
+
+    
+    function __construct($genres) {
+        $this->genres = $genres;
+    }
+
+};

@@ -1,18 +1,18 @@
 <?php
 
-include __DIR__.'./genre.php';
+include __DIR__.'/genre.php';
 
 class Movie {
     private $title;
-    private $genres = [];
+    public $genres;
     private $date;
 
-    public function getGenre() {
-        return implode(', ', $this->genres);
-    }
-
     function setTitle($title){
-        $this->title = $title; 
+        if ($title != null){
+            $this->title = $title; 
+        }else{
+            $this->title = 'UNKNOW';
+        }
     }
 
     function getTitle(){
@@ -27,9 +27,9 @@ class Movie {
         return $this->date; 
     }
 
-    function __construct($title, $genres, $date){
+    function __construct( $title, $genres, $date){
         $this->title = $title;
-        $this->genres = $genres;
+        $this->genres = new Genre($genres);
         $this->date = $date;
     }
 }
